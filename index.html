@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SteelmanBarbershop | Barbería de Alta Gama</title>
+    <link rel="stylesheet" href="index.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-wrapper">
+            <div class="header-left">
+                <a href="#"><img src="logo_vfinal.png" alt="SteelmanBarbershop" class="logo-img"></a>
+            </div>
+            <div class="header-right">
+                <ul class="nav-links">
+                    <li><a href="#hero">Inicio</a></li>
+                    <li><a href="#servicios">Servicios</a></li>
+                    <li><a href="#galeria">Galería</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+                <div class="menu-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="hero" class="hero" style="background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('hero.jpg'); background-size: cover; background-position: center;">
+            <div class="hero-content container fade-in">
+                <h1>Maestría en Cada Corte</h1>
+                <p>Donde la tradición se encuentra con el estilo moderno. La experiencia premium de barbería que te mereces.</p>
+                <div class="hero-btns">
+                    <a href="#servicios" class="btn-primary">Ver Servicios</a>
+                    <a href="#disponibilidad" class="btn-primary" style="background: transparent; color: var(--accent-gold); margin-left:1rem;">Reservar Cita</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="sobre-nosotros">
+            <div class="container">
+                <div class="glass-container fade-in">
+                    <div class="section-header">
+                        <h2>Nuestra Esencia</h2>
+                    </div>
+                    <div class="about-content">
+                        <p>En SteelmanBarbershop no solo cortamos el pelo, esculpimos identidades. Cada cliente es único, y nuestra misión es resaltar su mejor versión con técnicas artesanales y productos de la más alta calidad.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section --><!-- Using the names from the prompt's conversation history -->
+        <section id="servicios" class="bg-darker">
+            <div class="container text-center">
+                <h2>Nuestros Servicios</h2>
+                <div class="gold-line"></div>
+                <div class="services-grid">
+                    <div class="service-card service-degradado">
+                        <h3>Corte Degradado</h3>
+                        <p>Precisión y estilo en cada desvanecido.</p>
+                        <span class="price">20€</span>
+                    </div>
+                    <div class="service-card service-barba">
+                        <h3>Corte Degradado más Barba</h3>
+                        <p>El combo ideal para un acabado completo.</p>
+                        <span class="price">30€</span>
+                    </div>
+                    <div class="service-card service-cejas">
+                        <h3>Corte más Cejas</h3>
+                        <p>Detalles que marcan la diferencia.</p>
+                        <span class="price">25€</span>
+                    </div>
+                    <div class="service-card service-completo">
+                        <h3>Completo (Corte, Cejas, Barba)</h3>
+                        <p>La experiencia Steelman definitiva.</p>
+                        <span class="price">40€</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Availability Section -->
+        <section id="disponibilidad">
+            <div class="container text-center">
+                <h2>Citas Disponibles</h2>
+                <div class="gold-line"></div>
+                <p class="description">Consulta nuestros huecos libres en tiempo real.</p>
+                
+                <div id="availability-tabs" class="availability-tabs">
+                    <!-- JavaScript will generate 7 days here -->
+                </div>
+
+                <div id="availability-grid" class="availability-grid">
+                    <div class="loading-slots">Cargando disponibilidad...</div>
+                </div>
+                
+                <div class="booking-notice">
+                    <p>Calendario semanal actualizado. Pincha en un hueco libre para reservar.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Booking Modal -->
+        <div id="booking-modal" class="modal">
+            <div class="modal-content liquid-glass">
+                <span class="close-modal" onclick="closeBookingModal()">&times;</span>
+                <h3>Finalizar Reserva</h3>
+                <p id="modal-date-time" class="modal-info"></p>
+                <div class="form-group">
+                    <label>Servicio</label>
+                    <select id="modal-service" class="modal-input">
+                        <option value="Corte Degradado">Corte Degradado</option>
+                        <option value="Corte Degradado más Barba">Corte Degradado más Barba</option>
+                        <option value="Corte más Cejas">Corte más Cejas</option>
+                        <option value="Completo (Corte, Cejas, Barba)">Completo (Corte, Cejas, Barba)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Tu Nombre</label>
+                    <input type="text" id="modal-name" class="modal-input" placeholder="Escribe aquí tu nombre">
+                </div>
+                <div class="form-group">
+                    <label>Teléfono</label>
+                    <input type="tel" id="modal-phone" class="modal-input" placeholder="Tu número de contacto">
+                </div>
+                <div class="form-group">
+                    <label>Correo Electrónico</label>
+                    <input type="email" id="modal-email" class="modal-input" placeholder="tu@email.com">
+                </div>
+                <div class="form-group" style="display: flex; align-items: flex-start; gap: 0.5rem; margin-top: 1rem;">
+                    <input type="checkbox" id="modal-terms" style="margin-top: 4px;">
+                    <label style="font-size: 0.75rem; color: #888; text-transform: none; line-height: 1.2;">
+                        Acepto los términos y condiciones de SteelmanBarbershop y consiento el envío de correos de confirmación y comunicaciones promocionales de marketing.
+                    </label>
+                </div>
+                <button class="btn btn-gold" onclick="confirmAppointment()">Confirmar Cita</button>
+            </div>
+        </div>
+
+        <!-- Gallery Section -->
+        <section id="galeria">
+            <div class="container text-center">
+                <h2>Nuestra Galería</h2>
+                <div class="gold-line"></div>
+                <div class="gallery-grid">
+                    <div class="gallery-item"><img src="Galeria 1.png" alt="Corte Steelman 1"></div>
+                    <div class="gallery-item"><img src="Galeria 2.png" alt="Corte Steelman 2"></div>
+                    <div class="gallery-item"><img src="Galeria 3.png" alt="Corte Steelman 3"></div>
+                    <div class="gallery-item"><img src="Galeria 4.png" alt="Corte Steelman 4"></div>
+                    <div class="gallery-item"><img src="Galeria 5.png" alt="Corte Steelman 5"></div>
+                    <div class="gallery-item"><img src="Galeria 6.png" alt="Corte Steelman 6"></div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Contact Section -->
+        <section id="contacto">
+            <div class="container">
+                <div class="contact-wrapper">
+                    <div class="contact-info">
+                        <h2>Contacto</h2>
+                        <div class="gold-line"></div>
+                        <p>📍 Carrer Riera de Sant Jordi, 25, 08390 Montgat, Barcelona</p>
+                        <p>📞 +34 600 000 000</p>
+                        <p>📧 contacto@steelmanbarber.com</p>
+                        <div class="social-links">
+                            <a href="https://www.instagram.com/steelmanbarbershop/" target="_blank">Instagram</a> | <a href="#">WhatsApp</a>
+                        </div>
+                    </div>
+                    <div class="location-map">
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2990.231221192723!2d2.2801452154238515!3d41.46743127925692!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12a4bbda0e6cb443%3A0x6b412e8b0e891395!2sCarrer%20Riera%20de%20Sant%20Jordi%2C%2025%2C%2008390%20Montgat%2C%20Barcelona!5e0!3m2!1ses!2ses!4v1700000000000" 
+                            width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container text-center">
+            <p>&copy; 2026 SteelmanBarbershop. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+
+    <script src="script.js"></script>
+</body>
+</html>
