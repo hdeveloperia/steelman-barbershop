@@ -283,7 +283,7 @@ header {
 }
 
 .service-barba::before {
-  background-image: url('foto 3-2.jpg');
+  background-image: url('barba.jpg');
   filter: grayscale(100%);
   /* Black and White for Barba */
 }
